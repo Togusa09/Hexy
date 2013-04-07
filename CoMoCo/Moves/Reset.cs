@@ -22,13 +22,17 @@ namespace CoMoCo.Moves
             hexy.RightMiddle.replantFoot(1, 0.3f);
             hexy.LeftBack.replantFoot(deg, 0.3f);
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
+
+            Console.WriteLine(hexy.LeftFront.GetStatus());
+            Console.WriteLine(hexy.RightMiddle.GetStatus());
+            Console.WriteLine(hexy.LeftBack.GetStatus());
 
             hexy.RightFront.replantFoot(deg, 0.3f);
             hexy.LeftMiddle.replantFoot(1, 0.3f);
             hexy.RightBack.replantFoot(-deg, 0.3f);
 
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             // set all the hip angle to what they should be while standing
             hexy.LeftFront.hip(-deg);

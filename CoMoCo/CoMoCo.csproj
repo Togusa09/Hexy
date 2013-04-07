@@ -49,7 +49,6 @@
     <Compile Include="Robot\hexapod.cs" />
     <Compile Include="Robot\leg.cs" />
     <Compile Include="Robot\neck.cs" />
-    <Compile Include="runMovement.cs" />
     <Compile Include="serHandler.cs" />
     <Compile Include="Servo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

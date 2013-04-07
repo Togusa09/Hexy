@@ -15,6 +15,8 @@ namespace HexyDriver
     {
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
             //var serHandler = new serHandler();
             var controller = new Controller(32);
             var hexy = new hexapod(controller);
@@ -25,6 +27,8 @@ namespace HexyDriver
             //hexy.SetZero();
 
             hexy.Move("GetUp");
+            Thread.Sleep(2000);
+            hexy.Move("MoveForward");
             Thread.Sleep(2000);
             hexy.Move("MoveForward");
 
@@ -38,11 +42,16 @@ namespace HexyDriver
             //while (true)
             //{
             //    hexy.Move("MoveForward");
-            //    Thread.Sleep(1000);
+            //    Thread.Sleep(3000);
             //}
             
             
             controller.killAll();
+            
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
             
         }
     }

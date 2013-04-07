@@ -27,6 +27,15 @@ namespace CoMoCo.Robot
             _AnkleServoNumber = ankleServoNum;
         }
 
+        public string GetStatus()
+        {
+            var hipAngle = _Controller.Servos[_HipServoNumber].PosDeg;
+            var kneeAngle = _Controller.Servos[_KneeServoNumber].PosDeg;
+            var ankleAngle = _Controller.Servos[_AnkleServoNumber].PosDeg;
+
+            return string.Format("Name: {0} {1} {2} {3}", _Name, hipAngle, kneeAngle, ankleAngle);
+        }
+
         public void hip(int? deg)
         {
             if (!deg.HasValue)
@@ -54,19 +63,23 @@ namespace CoMoCo.Robot
         public void setHipDeg(int endHipAngle, float stepTime = 1)
         {
             // Runs a movement
-            var movement = new runMovement(setHipDeg_function, endHipAngle, stepTime);
+
+            var thread = new Thread(new ThreadStart(() => setHipDeg_function(endHipAngle,stepTime)));
+            thread.Start();
         }
 
         public void replantFoot(int endHipAngle, float stepTime = 1)
         {
             // Runs a movement
-            var movement = new runMovement(replantFoot_function, endHipAngle, stepTime);
+            var thread = new Thread(new ThreadStart(() => replantFoot_function(endHipAngle, stepTime)));
+            thread.Start();
         }
 
         public void setFootY(int endHipAngle, float stepTime = 1)
         {
             // Runs a movement
-            var movement = new runMovement(setFootY_function, endHipAngle, stepTime);
+            var thread = new Thread(new ThreadStart(() => setFootY_function(endHipAngle, stepTime)));
+            thread.Start();
         }
 
         public void setHipDeg_function(int endHipAngle, float stepTime)
@@ -132,9 +145,11 @@ namespace CoMoCo.Robot
                 {
                     angleNorm = hipAngle * (180 / 1);
                 }
-
+                //Console.WriteLine("Normalized angle: {0}", angleNorm);
                 // Base footfall on a sin pattern from footfall to footfall with 0 as the midpoint
-                var footY = footMin - Math.Sin(angleNorm * (180.0 / Math.PI)) * footRange;
+                var footY = footMin - Math.Sin((Math.PI * angleNorm) / 180.0) * footRange;
+                //Console.WriteLine("Caclulated footY {0}", footY);
+
 
                 // Set foot height
                 setFootY((int)footY, stepTime = 0);

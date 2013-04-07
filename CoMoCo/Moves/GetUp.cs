@@ -34,7 +34,7 @@ namespace CoMoCo.Moves
 
             Thread.Sleep(500);
 
-            for (var angle = 0; angle < 45; angle += 3)
+            for (var angle = 0; angle <= 45; angle += 3)
             {
                 foreach (var leg in hexy.Legs)
                 {

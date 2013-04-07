@@ -32,7 +32,10 @@ namespace CoMoCo
         public void Dispose()
         {
             if (_SerialPort.IsOpen)
+            {
                 _SerialPort.Close();
+                _SerialPort.Dispose();
+            }
         }
 
         public void AddToSendQueue(string value)
@@ -83,7 +86,7 @@ namespace CoMoCo
                     {
                         if (_SerialPort.IsOpen)
                         {
-                            _SerialPort.Write(toSend);                            
+                            _SerialPort.Write(toSend);
                             Console.WriteLine("sent {0} to COM{1}", 
                                 toSend.ToString().Replace("\r", "" ), _SerialNumber + 1);
                         }
@@ -171,6 +174,7 @@ namespace CoMoCo
                         else
                         {
                             serialPort.Close();
+                            serialPort.Dispose();
                             continue;
                         }
                     }
