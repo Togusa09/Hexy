@@ -1,5 +1,0 @@
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\CoMoCo\obj\Debug\CoMoCo.csprojResolveAssemblyReference.cache
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\CoMoCo\bin\Debug\CoMoCo.dll
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\CoMoCo\bin\Debug\CoMoCo.pdb
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\CoMoCo\obj\Debug\CoMoCo.dll
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\CoMoCo\obj\Debug\CoMoCo.pdb

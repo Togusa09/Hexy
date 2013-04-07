@@ -1,8 +1,0 @@
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\bin\Release\HexyDriver.exe.config
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\bin\Release\HexyDriver.exe
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\bin\Release\HexyDriver.pdb
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\bin\Release\CoMoCo.dll
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\bin\Release\CoMoCo.pdb
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\obj\Release\HexyDriver.csprojResolveAssemblyReference.cache
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\obj\Release\HexyDriver.exe
-C:\Users\Ben\Documents\Visual Studio 2012\Projects\HexyDriver\HexyDriver\obj\Release\HexyDriver.pdb
