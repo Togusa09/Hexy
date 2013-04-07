@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexyDriver", "HexyDriver\HexyDriver.csproj", "{09F28964-73D0-4DA5-B7D7-47BA25B1E163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoMoCo", "CoMoCo\CoMoCo.csproj", "{D101267C-32A4-4648-BDCF-316989CC885F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09F28964-73D0-4DA5-B7D7-47BA25B1E163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F28964-73D0-4DA5-B7D7-47BA25B1E163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F28964-73D0-4DA5-B7D7-47BA25B1E163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F28964-73D0-4DA5-B7D7-47BA25B1E163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D101267C-32A4-4648-BDCF-316989CC885F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D101267C-32A4-4648-BDCF-316989CC885F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D101267C-32A4-4648-BDCF-316989CC885F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D101267C-32A4-4648-BDCF-316989CC885F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
