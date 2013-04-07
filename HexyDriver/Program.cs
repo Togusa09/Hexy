@@ -19,10 +19,27 @@ namespace HexyDriver
             var controller = new Controller(32);
             var hexy = new hexapod(controller);
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             //hexy.GetUp();
-            hexy.SetZero();
+            //hexy.SetZero();
+
+            hexy.Move("GetUp");
+            Thread.Sleep(2000);
+            hexy.Move("MoveForward");
+
+            //hexy.Move("SetZero");
+            //Thread.Sleep(500);
+
+            //hexy.Move("GetUp");
+            //Thread.Sleep(500);
+            //hexy.Move("MoveForward");
+
+            //while (true)
+            //{
+            //    hexy.Move("MoveForward");
+            //    Thread.Sleep(1000);
+            //}
             
             
             controller.killAll();

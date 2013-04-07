@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CoMoCo.Moves;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +11,7 @@ namespace CoMoCo.Robot
 {
     public class hexapod
     {
-        private Controller _Controller;
+        public Controller Controller;
 
         public leg RightFront;
         public leg RightMiddle;
@@ -25,17 +27,19 @@ namespace CoMoCo.Robot
 
         private neck _Neck;
 
+        List<BaseMove> _Movements;
+
         public hexapod(Controller controller)
         {
-            _Controller = controller;
+            Controller = controller;
 
-            RightFront = new leg(_Controller, "rightFront", 24, 25, 26);
-            RightMiddle = new leg(_Controller, "rightMid", 20, 21, 22);
-            RightBack = new leg(_Controller, "rightBack", 16, 17, 18);
+            RightFront = new leg(Controller, "rightFront", 24, 25, 26);
+            RightMiddle = new leg(Controller, "rightMid", 20, 21, 22);
+            RightBack = new leg(Controller, "rightBack", 16, 17, 18);
 
-            LeftFront = new leg(_Controller, "leftFront", 7, 6, 5);
-            LeftMiddle = new leg(_Controller, "leftMid", 11, 10, 9);
-            LeftBack = new leg(_Controller, "leftBack", 15, 14, 13);
+            LeftFront = new leg(Controller, "leftFront", 7, 6, 5);
+            LeftMiddle = new leg(Controller, "leftMid", 11, 10, 9);
+            LeftBack = new leg(Controller, "leftBack", 15, 14, 13);
 
             Legs = new leg[] 
             {
@@ -43,9 +47,16 @@ namespace CoMoCo.Robot
                 LeftFront, LeftMiddle, LeftBack
             };
 
-            _Neck = new neck(_Controller, 31);
+            _Neck = new neck(Controller, 31);
             Tripod1 = new leg[] { RightFront, RightBack, LeftMiddle };
             Tripod2 = new leg[] { LeftFront, LeftBack, RightMiddle };
+
+            var baseType = typeof(BaseMove);
+            _Movements = Assembly.GetExecutingAssembly().GetTypes()
+                .Where(t => baseType.IsAssignableFrom(t)
+                    && t != baseType)
+                .Select(t => (BaseMove)Activator.CreateInstance(t))
+                .ToList();
         }
 
         public void GetUp()
@@ -107,9 +118,20 @@ namespace CoMoCo.Robot
 
         public void SetZero()
         {
-            foreach (var servo in _Controller.Servos)
+            foreach (var servo in Controller.Servos)
             {
                 servo.setPos(0);
+            }
+        }
+
+        public void Move(string moveName)
+        {
+            var movement = _Movements.Where(m => m.MovementName == moveName)
+                .FirstOrDefault();
+            if (movement != null)
+            {
+                movement.ExecuteAction(this);
+                Console.WriteLine("Executing action {0}", movement.MovementName);
             }
         }
     }

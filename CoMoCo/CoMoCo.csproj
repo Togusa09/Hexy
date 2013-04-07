@@ -40,6 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
+    <Compile Include="Moves\BaseMove.cs" />
+    <Compile Include="Moves\BellyFlop.cs" />
+    <Compile Include="Moves\GetUp.cs" />
+    <Compile Include="Moves\MoveForward.cs" />
+    <Compile Include="Moves\Reset.cs" />
+    <Compile Include="Moves\SetZero.cs" />
     <Compile Include="Robot\hexapod.cs" />
     <Compile Include="Robot\leg.cs" />
     <Compile Include="Robot\neck.cs" />
