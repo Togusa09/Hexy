@@ -1,0 +1,13 @@
+﻿<Window x:Class="CoMoCoGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:user="clr-namespace:CoMoCoGui"
+        Title="MainWindow" Height="350" Width="525">
+    <ItemsControl ItemsSource="{Binding Servos}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <user:ServoControl/>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</Window>

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexyDriver", "HexyDriver\He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoMoCo", "CoMoCo\CoMoCo.csproj", "{D101267C-32A4-4648-BDCF-316989CC885F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoMoCoGui", "CoMoCoGui\CoMoCoGui.csproj", "{21E0862E-EC30-4509-AF51-C377F11D5FC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{D101267C-32A4-4648-BDCF-316989CC885F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D101267C-32A4-4648-BDCF-316989CC885F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D101267C-32A4-4648-BDCF-316989CC885F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E0862E-EC30-4509-AF51-C377F11D5FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E0862E-EC30-4509-AF51-C377F11D5FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E0862E-EC30-4509-AF51-C377F11D5FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E0862E-EC30-4509-AF51-C377F11D5FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
