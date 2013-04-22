@@ -12,6 +12,7 @@ namespace CoMoCoGui.ViewModels
     {
         public int ServoMinPosition { get; set; }
         public int ServoMaxPosition { get; set; }
+        public int ServoNumber { get; set; }
 
         private int _ServoPosition = 1500;
         public int ServoPosition 
@@ -54,8 +55,9 @@ namespace CoMoCoGui.ViewModels
             }
         }
 
-        public ServoViewModel()
+        public ServoViewModel(int number)
         {
+            ServoNumber = number;
             ServoMinPosition = 500;
             ServoMaxPosition = 2500;
             ServoPosition = 1500;

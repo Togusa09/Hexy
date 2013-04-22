@@ -16,7 +16,7 @@ namespace CoMoCoGui.ViewModels
             Servos = new ObservableCollection<ServoViewModel>();
             for (int i = 0; i < 32; i++)
             {
-                Servos.Add(new ServoViewModel());
+                Servos.Add(new ServoViewModel(i));
             }
         }
     }
