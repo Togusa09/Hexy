@@ -20,6 +20,7 @@ namespace CoMoCoGui
             //Views.MainView view = new Views.MainView();
             var viewModel = new MainWindowViewModel();
             var view = new MainWindow();
+            view.Closing += viewModel.Window_Closing;
             view.DataContext = viewModel;
             view.Show();
         }

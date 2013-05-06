@@ -1,4 +1,5 @@
-﻿using CoMoCoGui.Commands;
+﻿using CoMoCo;
+using CoMoCoGui.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,58 +11,72 @@ namespace CoMoCoGui.ViewModels
 {
     class ServoViewModel : ViewModelBase
     {
+
         public int ServoMinPosition { get; set; }
         public int ServoMaxPosition { get; set; }
         public int ServoNumber { get; set; }
+        private Servo _Servo;
 
-        private int _ServoPosition = 1500;
+        //private int _ServoPosition = 1500;
         public int ServoPosition 
         {
-            get {return _ServoPosition;}
+            get {return _Servo.PosuS;}
             set 
             {
-                if (value == _ServoPosition) return;
-                _ServoPosition = value;
+                if (value == _Servo.PosuS) return;
+                _Servo.setPos(null, value, ServoActive);
                 OnPropertyChanged("ServoPosition");
             }
         }
 
-        private bool _ServoActive = false;
         public bool ServoActive
         {
-            get { return _ServoActive; }
+            get { return _Servo.Active; }
             set
             {
-                if (value == _ServoActive) return;
-                _ServoActive = value;
+                if (value == _Servo.Active) return;
+
+                if (value == false)
+                    _Servo.kill();
+                else
+                    _Servo.setPos(null, null, true);
+
                 OnPropertyChanged("ServoActive");
             }
         }
 
-        private ICommand _ResetServo;
-        public ICommand ResetServo
+        private ICommand _ResetServoCommand;
+        public ICommand ResetServoCommand
         {
             get
             {
-                if (_ResetServo == null)
+                if (_ResetServoCommand == null)
                 {
-                    _ResetServo = new DelegateCommand(delegate()
+                    _ResetServoCommand = new DelegateCommand(delegate()
                     {
-                        ServoPosition = 5000;
-                        ServoActive = true;
+                        ResetServo();
                     });
                 }
-                return _ResetServo;
+                return _ResetServoCommand;
             }
         }
 
-        public ServoViewModel(int number)
+        public void ResetServo()
         {
+            ServoPosition = 1500;
+            ServoActive = true;
+        }
+
+        public ServoViewModel(int number, Servo servo)
+        {
+            _Servo = servo;
             ServoNumber = number;
+            ServoActive = false;
             ServoMinPosition = 500;
             ServoMaxPosition = 2500;
             ServoPosition = 1500;
-            ServoActive = false;
+            
+            
         }
     }
 }

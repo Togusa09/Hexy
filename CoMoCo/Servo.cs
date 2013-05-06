@@ -56,9 +56,9 @@ namespace CoMoCo
 #endif
         }
 
-        public void setPos(int? deg = null, bool move = true) 
+        public void setPos(int? deg = null, int? timing = null, bool move = true) 
        {
-           int? timing = null;
+           //int? timing = null;
             if (timing != null)
                 _ServoPosition = timing.Value;
             if (deg != null)

@@ -123,33 +123,30 @@ namespace CoMoCo.Robot
             var currentHipAngle = _Controller.Servos[_HipServoNumber].PosDeg;
             var hipMaxDiff = endHipAngle - currentHipAngle;
 
+            // Caclulate the absolute distance between the foots highests and lowest point
+            var footMax = 0;
+            var footMin = _Floor;
+            
+
+            var footRange = Math.Abs(footMax - footMin);
+
             for (int i = 0; i < _StepsPerSecond; i++)
             {
                 var hipAngle = (hipMaxDiff / _StepsPerSecond) * (i + 1);
-                
-                //Console.WriteLine("hip angle calc'd: " + hipAngle);
-
-                // Caclulate the absolute distance between the foots highests and lowest point
-                var footMax = 0;
-                var footMin = _Floor;
-
-                var footRange = Math.Abs(footMax - footMin);
+                //Console.WriteLine("hip angle calc'd: " + hipAngle);    
 
                 var angleNorm = 0.0f;
+
                 // Normalize the range of the hip movement to 180 deg
-                try
-                {
+                if (hipMaxDiff != 0)
                     angleNorm = hipAngle * (180 / hipMaxDiff);
-                }
-                catch
-                {
+                else
                     angleNorm = hipAngle * (180 / 1);
-                }
+                
                 //Console.WriteLine("Normalized angle: {0}", angleNorm);
                 // Base footfall on a sin pattern from footfall to footfall with 0 as the midpoint
                 var footY = footMin - Math.Sin((Math.PI * angleNorm) / 180.0) * footRange;
                 //Console.WriteLine("Caclulated footY {0}", footY);
-
 
                 // Set foot height
                 setFootY((int)footY, stepTime = 0);

@@ -109,6 +109,9 @@ namespace CoMoCo
                     try
                     {
                         serialPort = new SerialPort(comPort, _BaudRate);
+                        //serialPort.NewLine = "\n";
+                        serialPort.DtrEnable = true;
+
                         serialPort.WriteTimeout = 2000;
                         serialPort.Open();
                     }
@@ -116,7 +119,8 @@ namespace CoMoCo
                     {
                         throw;
                     }
-                    serialPort.Write("V\n");
+                    serialPort.Write("V");
+
                     var result = serialPort.ReadLine();
                     if (result.Contains("SERVOTOR"))
                     {

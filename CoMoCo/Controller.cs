@@ -16,7 +16,7 @@ namespace CoMoCo
         {
             _SerialHandler = new serHandler();
             var timeout = DateTime.Now;
-            while( !(_SerialHandler.serOpen || DateTime.Now - timeout > new TimeSpan(0, 0, 10)))
+            while( !(_SerialHandler.serOpen || DateTime.Now - timeout > new TimeSpan(0, 1, 10)))
             {
                 Thread.Sleep(10);
             }
